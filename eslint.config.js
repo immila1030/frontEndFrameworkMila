@@ -3,7 +3,6 @@ import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginVue from 'eslint-plugin-vue';
 import stylistic from '@stylistic/eslint-plugin';
-import pluginPrettier from 'eslint-plugin-prettier';
 
 export default [
   {
@@ -17,7 +16,6 @@ export default [
     plugins: {
       '@stylistic': stylistic,
       vue: pluginVue,
-      prettier: pluginPrettier,
     },
     rules: {
       'no-unused-vars': 'off',
@@ -32,7 +30,6 @@ export default [
       ], // 物件屬性必須換行
       'vue/html-indent': ['error', 2], // Vue 文件的縮排設定
       'vue/max-attributes-per-line': ['error', { singleline: 1, multiline: 1 }], // 控制 Vue 文件中每行屬性的數量
-      'prettier/prettier': ['error'],
     },
   },
   // JavaScript 推薦設定
