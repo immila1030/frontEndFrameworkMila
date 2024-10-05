@@ -1,11 +1,11 @@
 <script setup>
-import { ref } from 'vue';
-
+// import { ref } from 'vue';
+import { Button } from '@/components/ui/button';
 defineProps({
   msg: String,
 });
 
-const count = ref(0);
+// const count = ref(0);
 </script>
 
 <template>
@@ -20,6 +20,7 @@ const count = ref(0);
     <p>我是時間：<span id="timer"></span></p>
 
     <p id="text">hello!Mila~~~</p>
+    <Button>Click me</Button>
   </div>
 
   <!-- <p>
