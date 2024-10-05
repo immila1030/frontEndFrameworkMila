@@ -17,7 +17,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    vue(), //這邊是透過vite使用vue
+    vue(), //這邊是透過vite使用vue  test
     visualizer({
       filename: 'stats.html', // 生成分析檔案的文件名稱
       open: true, // 是否以預設的代理伺服器打開分析檔案
