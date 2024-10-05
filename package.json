@@ -7,13 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint --edit $1"
     }
   },
   "dependencies": {
@@ -22,6 +22,7 @@
     "clsx": "^2.1.1",
     "husky": "^9.1.6",
     "lucide-vue-next": "^0.447.0",
+    "pinia": "^2.2.4",
     "radix-vue": "^1.9.6",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
