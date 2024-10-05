@@ -18,7 +18,7 @@ export default [
       vue: pluginVue,
     },
     rules: {
-      'no-unused-vars': 'off',
+      'no-unused-vars': 'warn',
       '@stylistic/indent': ['error', 2], // 將 tabWidth 設定為 2
       '@stylistic/semi': ['error', 'always'], // 句尾使用分號
       '@stylistic/space-before-function-paren': ['error', 'always'],
@@ -29,7 +29,8 @@ export default [
         { allowAllPropertiesOnSameLine: false },
       ], // 物件屬性必須換行
       'vue/html-indent': ['error', 2], // Vue 文件的縮排設定
-      'vue/max-attributes-per-line': ['error', { singleline: 1, multiline: 1 }], // 控制 Vue 文件中每行屬性的數量
+      'vue/max-attributes-per-line': ['error', { singleline: 1,
+        multiline: 1 }], // 控制 Vue 文件中每行屬性的數量
     },
   },
   // JavaScript 推薦設定

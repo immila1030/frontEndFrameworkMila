@@ -6,10 +6,10 @@ export const useStore = defineStore('store', {
     message: 'Hello, Pinia!',
   }),
   actions: {
-    increment() {
+    increment () {
       this.count++;
     },
-    setMessage(newMessage) {
+    setMessage (newMessage) {
       this.message = newMessage;
     },
   },
