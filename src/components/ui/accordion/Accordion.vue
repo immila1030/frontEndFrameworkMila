@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import { AccordionRoot, useForwardPropsEmits } from 'radix-vue';
 

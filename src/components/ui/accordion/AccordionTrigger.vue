@@ -1,14 +1,16 @@
 <script setup>
-/* eslint-disable */
 import { computed } from 'vue';
 import { AccordionHeader, AccordionTrigger } from 'radix-vue';
 import { ChevronDown } from 'lucide-vue-next';
 import { cn } from '@/lib/utils';
 
 const props = defineProps({
-  asChild: { type: Boolean, required: false },
-  as: { type: null, required: false },
-  class: { type: null, required: false },
+  asChild: { type: Boolean,
+    required: false },
+  as: { type: null,
+    required: false },
+  class: { type: null,
+    required: false },
 });
 
 const delegatedProps = computed(() => {
