@@ -19,7 +19,7 @@ const accordionItems = [
     value: 'item-2',
     title: 'Is it unstyled?',
     content:
-      "'Yes. It's unstyled by default, giving you freedom over the look and feel.",
+      '\'Yes. It\'s unstyled by default, giving you freedom over the look and feel.',
   },
   {
     value: 'item-3',
@@ -29,13 +29,13 @@ const accordionItems = [
 ];
 const defaultValue = ['item-3']; //預設打開哪一個
 
-function toogleDarkMode() {
+function toogleDarkMode () {
   const body = document.querySelector('body');
   const isDark = body?.classList.contains('dark');
   isDark ? body.classList.remove('dark') : body.classList.add('dark');
 }
 
-function ChangeTheme(theme: string): void {
+function ChangeTheme (theme: string): void {
   const body = document.querySelector('body');
   const isDark = body?.classList.contains('dark');
 
@@ -56,14 +56,17 @@ function ChangeTheme(theme: string): void {
     <!-- <hmrAPI msg="Vite + Vue" /> -->
     <div class="my-8">
       <Button @click="toogleDarkMode">Toggle Dark Mode</Button>
-      <Button @click="ChangeTheme('theme-green')" variant="outline"
-        >Chang Theme Green</Button
+      <Button @click="ChangeTheme('theme-green')"
+              variant="outline"
+      >Chang Theme Green</Button
       >
-      <Button @click="ChangeTheme('theme-orange')" variant="outline"
-        >Chang Theme Orange</Button
+      <Button @click="ChangeTheme('theme-orange')"
+              variant="outline"
+      >Chang Theme Orange</Button
       >
-      <Button @click="ChangeTheme('theme-zinc')" variant="secondary"
-        >Chang Theme Zinc</Button
+      <Button @click="ChangeTheme('theme-zinc')"
+              variant="secondary"
+      >Chang Theme Zinc</Button
       >
       <Accordion
         type="multiple"

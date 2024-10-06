@@ -12,7 +12,6 @@ import {
   Package2,
   PanelLeft,
   Search,
-  Settings,
   ShoppingCart,
   Truck,
   Users2,
@@ -130,12 +129,15 @@ import { Checkbox } from '@/components/ui/checkbox';
       >
         <Sheet>
           <SheetTrigger as-child>
-            <Button size="icon" variant="outline" class="sm:hidden">
+            <Button size="icon"
+                    variant="outline"
+                    class="sm:hidden">
               <PanelLeft class="h-5 w-5" />
               <span class="sr-only">Toggle Menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" class="sm:max-w-xs">
+          <SheetContent side="left"
+                        class="sm:max-w-xs">
             <nav class="grid gap-6 text-lg font-medium">
               <a
                 href="#"
@@ -215,7 +217,9 @@ import { Checkbox } from '@/components/ui/checkbox';
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
-            <Button variant="secondary" size="icon" class="rounded-full">
+            <Button variant="secondary"
+                    size="icon"
+                    class="rounded-full">
               <CircleUser class="h-5 w-5" />
               <span class="sr-only">Toggle user menu</span>
             </Button>
@@ -262,7 +266,8 @@ import { Checkbox } from '@/components/ui/checkbox';
                 </div>
               </CardContent>
               <CardFooter>
-                <Progress :model-value="25" aria-label="25% increase" />
+                <Progress :model-value="25"
+                          aria-label="25% increase" />
               </CardFooter>
             </Card>
             <Card>
@@ -276,7 +281,8 @@ import { Checkbox } from '@/components/ui/checkbox';
                 </div>
               </CardContent>
               <CardFooter>
-                <Progress :model-value="12" aria-label="12% increase" />
+                <Progress :model-value="12"
+                          aria-label="12% increase" />
               </CardFooter>
             </Card>
           </div>
@@ -386,7 +392,8 @@ import { Checkbox } from '@/components/ui/checkbox';
                           Sale
                         </TableCell>
                         <TableCell class="hidden sm:table-cell">
-                          <Badge class="text-xs" variant="secondary">
+                          <Badge class="text-xs"
+                                 variant="secondary">
                             Fulfilled
                           </Badge>
                         </TableCell>
@@ -408,7 +415,8 @@ import { Checkbox } from '@/components/ui/checkbox';
                           Refund
                         </TableCell>
                         <TableCell class="hidden sm:table-cell">
-                          <Badge class="text-xs" variant="outline">
+                          <Badge class="text-xs"
+                                 variant="outline">
                             Declined
                           </Badge>
                         </TableCell>
@@ -430,7 +438,8 @@ import { Checkbox } from '@/components/ui/checkbox';
                           Subscription
                         </TableCell>
                         <TableCell class="hidden sm:table-cell">
-                          <Badge class="text-xs" variant="secondary">
+                          <Badge class="text-xs"
+                                 variant="secondary">
                             Fulfilled
                           </Badge>
                         </TableCell>
@@ -452,7 +461,8 @@ import { Checkbox } from '@/components/ui/checkbox';
                           Sale
                         </TableCell>
                         <TableCell class="hidden sm:table-cell">
-                          <Badge class="text-xs" variant="secondary">
+                          <Badge class="text-xs"
+                                 variant="secondary">
                             Fulfilled
                           </Badge>
                         </TableCell>
@@ -474,7 +484,8 @@ import { Checkbox } from '@/components/ui/checkbox';
                           Sale
                         </TableCell>
                         <TableCell class="hidden sm:table-cell">
-                          <Badge class="text-xs" variant="secondary">
+                          <Badge class="text-xs"
+                                 variant="secondary">
                             Fulfilled
                           </Badge>
                         </TableCell>
@@ -496,7 +507,8 @@ import { Checkbox } from '@/components/ui/checkbox';
                           Sale
                         </TableCell>
                         <TableCell class="hidden sm:table-cell">
-                          <Badge class="text-xs" variant="secondary">
+                          <Badge class="text-xs"
+                                 variant="secondary">
                             Fulfilled
                           </Badge>
                         </TableCell>
@@ -518,7 +530,8 @@ import { Checkbox } from '@/components/ui/checkbox';
                           Refund
                         </TableCell>
                         <TableCell class="hidden sm:table-cell">
-                          <Badge class="text-xs" variant="outline">
+                          <Badge class="text-xs"
+                                 variant="outline">
                             Declined
                           </Badge>
                         </TableCell>
@@ -540,7 +553,8 @@ import { Checkbox } from '@/components/ui/checkbox';
                           Sale
                         </TableCell>
                         <TableCell class="hidden sm:table-cell">
-                          <Badge class="text-xs" variant="secondary">
+                          <Badge class="text-xs"
+                                 variant="secondary">
                             Fulfilled
                           </Badge>
                         </TableCell>
@@ -574,7 +588,9 @@ import { Checkbox } from '@/components/ui/checkbox';
                 <CardDescription>Date: November 23, 2023</CardDescription>
               </div>
               <div class="ml-auto flex items-center gap-1">
-                <Button size="sm" variant="outline" class="h-8 gap-1">
+                <Button size="sm"
+                        variant="outline"
+                        class="h-8 gap-1">
                   <Truck class="h-3.5 w-3.5" />
                   <span class="lg:sr-only xl:not-sr-only xl:whitespace-nowrap">
                     Track Order
@@ -582,7 +598,9 @@ import { Checkbox } from '@/components/ui/checkbox';
                 </Button>
                 <DropdownMenu>
                   <DropdownMenuTrigger as-child>
-                    <Button size="icon" variant="outline" class="h-8 w-8">
+                    <Button size="icon"
+                            variant="outline"
+                            class="h-8 w-8">
                       <MoreVertical class="h-3.5 w-3.5" />
                       <span class="sr-only">More</span>
                     </Button>
@@ -696,8 +714,10 @@ import { Checkbox } from '@/components/ui/checkbox';
               </div>
               <Pagination class="ml-auto mr-0 w-auto">
                 <PaginationList class="gap-1">
-                  <PaginationPrev variant="outline" class="h-6 w-6" />
-                  <PaginationNext variant="outline" class="h-6 w-6" />
+                  <PaginationPrev variant="outline"
+                                  class="h-6 w-6" />
+                  <PaginationNext variant="outline"
+                                  class="h-6 w-6" />
                 </PaginationList>
               </Pagination>
             </CardFooter>
