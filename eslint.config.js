@@ -23,6 +23,16 @@ export default [
       '@stylistic/semi': ['error', 'always'], // 句尾使用分號
       '@stylistic/space-before-function-paren': ['error', 'always'],
       '@stylistic/quotes': ['error', 'single'], // 強制使用單引號
+      '@stylistic/max-len': [
+        'error', 
+        { 
+          code: 80, // 最大長度為80
+          ignoreComments: true, // 忽略註解
+          ignoreUrls: true, // 忽略包含URL
+          ignoreStrings: true, // 忽略包含字串
+          ignorePattern: '^\\s*class\\s*=\\s*".*"$' // 忽略class属性
+        }
+      ],
       '@stylistic/object-curly-spacing': ['error', 'always'], // 在物件的前後加空格
       '@stylistic/object-property-newline': [
         'error',
