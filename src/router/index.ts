@@ -6,8 +6,8 @@ import Notifications from '../forms/Notifications.vue';
 import Display from '../forms/Display.vue';
 const routes = [
   {
-    path: '/forms',
-    component: FormsLayout,
+    path: '/',
+    redirect: '/forms/account', 
   },
   {
     path: '/forms/account',
