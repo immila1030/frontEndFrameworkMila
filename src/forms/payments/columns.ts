@@ -16,27 +16,27 @@ import deleteIcon from '@/assets/icons/delete.svg';
 import edit from '@/assets/icons/edit.svg';
 import share from '@/assets/icons/share.svg';
 export const columns: ColumnDef<Task>[] = [
-  {
-    id: 'select',
-    header: ({ table }) =>
-      h(Checkbox, {
-        checked:
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && 'indeterminate'),
-        'onUpdate:checked': (value) => table.toggleAllPageRowsSelected(!!value),
-        ariaLabel: 'Select all',
-        class: 'translate-y-0.5',
-      }),
-    cell: ({ row }) =>
-      h(Checkbox, {
-        checked: row.getIsSelected(),
-        'onUpdate:checked': (value) => row.toggleSelected(!!value),
-        ariaLabel: 'Select row',
-        class: 'translate-y-0.5',
-      }),
-    enableSorting: false,
-    enableHiding: false,
-  },
+  // {
+  //   id: 'select',
+  //   header: ({ table }) =>
+  //     h(Checkbox, {
+  //       checked:
+  //         table.getIsAllPageRowsSelected() ||
+  //         (table.getIsSomePageRowsSelected() && 'indeterminate'),
+  //       'onUpdate:checked': (value) => table.toggleAllPageRowsSelected(!!value),
+  //       ariaLabel: 'Select all',
+  //       class: 'translate-y-0.5',
+  //     }),
+  //   cell: ({ row }) =>
+  //     h(Checkbox, {
+  //       checked: row.getIsSelected(),
+  //       'onUpdate:checked': (value) => row.toggleSelected(!!value),
+  //       ariaLabel: 'Select row',
+  //       class: 'translate-y-0.5',
+  //     }),
+  //   enableSorting: false,
+  //   enableHiding: false,
+  // },
   {
     accessorKey: 'id',
     header: ({ column }) =>
@@ -108,7 +108,7 @@ export const columns: ColumnDef<Task>[] = [
     },
   },
   {
-    accessorKey: 'content',
+    accessorKey: 'producer',
     header: ({ column }) =>
       h(
         'div',
@@ -135,7 +135,7 @@ export const columns: ColumnDef<Task>[] = [
     enableSorting: false,
   },
   {
-    accessorKey: 'content',
+    accessorKey: 'buttons',
     header: ({ column }) =>
       h(
         'div',
@@ -193,7 +193,7 @@ export const columns: ColumnDef<Task>[] = [
             [
               h('img', {
                 src: edit,
-                alt: '编辑',
+                alt: '編輯',
                 class: 'h-22 w-22',
               }),
             ]
@@ -214,7 +214,7 @@ export const columns: ColumnDef<Task>[] = [
             [
               h('img', {
                 src: deleteIcon,
-                alt: '删除',
+                alt: '刪除',
                 class: 'h-22 w-22',
               }),
             ]
@@ -222,10 +222,10 @@ export const columns: ColumnDef<Task>[] = [
         ]
       );
     },
-    enableSorting: false, // 禁止排序
+    enableSorting: false, 
   },
-  {
-    id: 'actions',
-    cell: ({ row }) => h(DataTableRowActions, { row }),
-  },
+  // {
+  //   id: 'actions',
+  //   cell: ({ row }) => h(DataTableRowActions, { row }),
+  // },
 ];

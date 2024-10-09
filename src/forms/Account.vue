@@ -4,5 +4,4 @@ import AccountForm from './components/AccountForm.vue';
 
 <template>
   <AccountForm />
-  <p>123123</p>
 </template>

@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <div class="border-l-2 border-textHover">
-      <p class="pl-1 text-xl text-textHover font-bold">專案</p>
+  <div id="content">
+    <div class="border-l-4 border-textHover">
+      <p class="text-xl text-textHover font-bold ml-1">專案</p>
     </div>
-    <div class="pt-5">
+    <div class="">
       <Tabs default-value="account">
         <div id="search-container">
           <div>
@@ -12,7 +12,7 @@
               <TabsTrigger value="password"> 團隊專案 </TabsTrigger>
             </TabsList>
           </div>
-          <div class="flex justify-center">
+          <div class="flex justify-center xl:flex hidden">
             <Carousel
               class="relative w-full max-w-sm"
               :opts="{
@@ -23,7 +23,7 @@
                 <CarouselItem
                   v-for="(_, index) in 10"
                   :key="index"
-                  class="md:basis-1/5 lg:basis-1/5"
+                  class="lg:basis-1/5"
                 >
                   <div class="">
                     <Card>
@@ -35,7 +35,7 @@
                                        alt="@radix-vue" />
                           <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
-                        <span class="font-semibold whitespace-nowrap text-black"
+                        <span class="whitespace-nowrap text-black"
                         >全屋記{{ index + 1 }}</span
                         >
                       </CardContent>
@@ -53,27 +53,29 @@
               type="text"
               placeholder="請輸入專案名稱"
               class="pr-10 rounded-ro text-base"
-              v-model="searchTerm" 
+              v-model="searchTerm"
             />
             <span
-              class="absolute end-0 inset-y-0 flex items-center justify-center px-2 m-1  bg-textHover rounded-ro "
+              class="absolute end-0 inset-y-0 flex items-center justify-center px-2 m-1 bg-textHover rounded-ro"
             >
-              <Search
-                class="size-4 text-muted-foreground text-white"
-              />
+              <Search class="size-4 text-muted-foreground text-white" />
             </span>
           </div>
         </div>
 
-        <TabsContent value="account">
-          <div class="container py-10 mx-auto">
-            <DataTable :columns="columns"
-                       :data="data"
-                       :searchTerm="searchTerm"/>
+        <TabsContent value="account"
+                     class="page-container">
+          <div class="mx-auto bg-white rounded page-content">
+            <DataTable
+              class="p-5"
+              :columns="columns"
+              :data="data"
+              :searchTerm="searchTerm"
+            />
           </div>
-          <BellIcon class="h-6 w-6 text-blue-500" />
-          <ArrowDownIcon class="h-6 w-6 text-blue-500" />
-          <PopoverRoot>
+          <!-- <BellIcon class="h-6 w-6 text-blue-500" />
+          <ArrowDownIcon class="h-6 w-6 text-blue-500" /> -->
+          <!-- <PopoverRoot>
             <PopoverTrigger class="PopoverTrigger"> More info </PopoverTrigger>
             <PopoverPortal>
               <PopoverContent class="PopoverContent">
@@ -82,9 +84,19 @@
                 <PopoverArrow class="PopoverArrow" />
               </PopoverContent>
             </PopoverPortal>
-          </PopoverRoot>
+          </PopoverRoot> -->
         </TabsContent>
-        <TabsContent value="password"> Change your password here. </TabsContent>
+        <TabsContent value="password"
+                     class="page-container">
+          <div class="mx-auto bg-white rounded page-content">
+            <DataTable
+              class="p-5"
+              :columns="columns"
+              :data="data"
+              :searchTerm="searchTerm"
+            />
+          </div>
+        </TabsContent>
       </Tabs>
     </div>
   </div>
@@ -130,5 +142,41 @@ onMounted(async () => {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
+  margin: 1px;
+  padding: 1px;
+  margin-bottom: 32px;
+}
+#content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  flex: 1;
+  overflow: scroll;
+  scrollbar-width: none;
+  padding: 0;
+  margin: 0 20px;
+}
+.page-container {
+  margin: 0;
+}
+.page-content {
+  height: auto;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 4px 4px 2px 0 rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin: 0;
+  padding: 20px;
+  height: auto;
+  color: #4d4d4d;
+  margin-bottom: 20px;
+}
+@media (max-width: 1280px) {
+  #search-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 </style>

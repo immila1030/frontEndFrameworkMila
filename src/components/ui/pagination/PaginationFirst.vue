@@ -20,7 +20,7 @@ const delegatedProps = computed(() => {
 
 <template>
   <PaginationFirst v-bind="delegatedProps">
-    <Button :class="cn('w-10 h-10 p-0', props.class)" variant="outline">
+    <Button :class="cn('w-10 h-10 p-0 rounded-ro  bg-white text-black ring-transparent hover:bg-bgHover hover:text-white', props.class)" variant="outline">
       <slot>
         <ChevronsLeft class="h-4 w-4" />
       </slot>

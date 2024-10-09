@@ -20,20 +20,20 @@ const isFiltered = computed(
 </script>
 
 <template>
-  <div class="flex items-center justify-between">
-    <div class="flex flex-1 items-center space-x-2">
-      <!-- <DataTableFacetedFilter
+  <div class="">
+    <!-- <div class="flex flex-1 items-center space-x-2">
+      <DataTableFacetedFilter
         v-if="table.getColumn('status')"
         :column="table.getColumn('status')"
         title="Status"
         :options="statuses"
-      /> -->
-      <!-- <DataTableFacetedFilter
+      />
+      <DataTableFacetedFilter
         v-if="table.getColumn('priority')"
         :column="table.getColumn('priority')"
         title="Priority"
         :options="priorities"
-      /> -->
+      />
 
       <Button
         v-if="isFiltered"
@@ -44,8 +44,9 @@ const isFiltered = computed(
         Reset
         <Cross2Icon class="ml-2 h-4 w-4" />
       </Button>
-    </div>
-    <DataTableViewOptions :table="table"
+    </div> -->
+    <DataTableViewOptions 
+      :table="table"
     />
   </div>
 </template>

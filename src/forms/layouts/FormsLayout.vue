@@ -73,13 +73,17 @@
       >
         <SidebarNav2 />
       </aside>
-
-      <div
-        id="content"
-        class="flex flex-1 flex-col gap-4 lg:gap-6 bg-whitet overflow-auto"
-      >
-        <div class="space-y-6">
+      <div id="container"
+           class="flex flex-1 flex-col gap-4 lg:gap-6 bg-whitet overflow-auto">
+        <!-- <div
+          id="content"
+          class="flex flex-1 flex-col gap-4 lg:gap-6 bg-whitet overflow-auto"
+        > -->
+        <div id="content"
+        >
+          
           <router-view />
+          
         </div>
       </div>
     </div>
@@ -153,8 +157,18 @@ function ChangeTheme (theme: string): void {
   color: aliceblue;
 }
 #content {
-  margin: 0 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+#container {
+  overflow: scroll;
+  margin: 0 0 80px 0;
   scrollbar-width: none;
-  padding-left: 5px;
+  --tw-space-y-reverse: none;
 }
 </style>

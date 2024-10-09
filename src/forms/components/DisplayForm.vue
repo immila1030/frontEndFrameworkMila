@@ -1,5 +1,6 @@
 <template>
-  <div class="card">
+  <div id="content"
+       class="card">
     <!-- <p>我是時間：<span id="timer"></span></p> -->
     <!-- <p id="text">hello!Mila~~~</p> -->
     <p>使用i18b切換語言</p>
@@ -50,5 +51,16 @@ const setMessage = (msg) => {
 <style scoped>
 .read-the-docs {
   color: #888;
+}
+#content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  flex: 1;
+  overflow: scroll;
+  scrollbar-width: none;
+  padding: 0;
+  margin: 0 20px;
 }
 </style>

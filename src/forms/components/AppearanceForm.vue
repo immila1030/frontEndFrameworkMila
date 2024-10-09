@@ -1,6 +1,6 @@
 
 <template>
-  <div>
+  <div id="content">
     <p>帳號bbb</p>
     <Accordion
       type="multiple"
@@ -56,3 +56,16 @@ const accordionItems = [
 ];
 const defaultValue = ['item-3']; //預設打開哪一個
 </script>
+<style scoped>
+#content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  flex: 1;
+  overflow: scroll;
+  scrollbar-width: none;
+  padding: 0;
+  margin: 0 20px;
+}
+</style>
