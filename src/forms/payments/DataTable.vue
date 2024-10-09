@@ -8,15 +8,12 @@ import type {
 import {
   FlexRender,
   getCoreRowModel,
-  getFacetedRowModel,
-  getFacetedUniqueValues,
   getFilteredRowModel,
   getPaginationRowModel,
-  getSortedRowModel,
   useVueTable,
 } from '@tanstack/vue-table';
 
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import type { Task } from '../data/schema';
 import DataTablePagination from './DataTablePagination.vue';
 import DataTableToolbar from './DataTableToolbar.vue';
@@ -31,16 +28,17 @@ import {
 } from '@/components/ui/table';
 
 interface DataTableProps {
-  columns: ColumnDef<Task, any>[];
-  data: Task[];
+  columns: ColumnDef<Task, any>[]; 
+  data: Task[]; 
+  searchTerm: string; 
 }
+
 const props = defineProps<DataTableProps>();
 
 const sorting = ref<SortingState>([]);
 const columnFilters = ref<ColumnFiltersState>([]);
 const columnVisibility = ref<VisibilityState>({});
 const rowSelection = ref({});
-
 const table = useVueTable({
   get data () {
     return props.data;
@@ -73,10 +71,18 @@ const table = useVueTable({
   getCoreRowModel: getCoreRowModel(),
   getFilteredRowModel: getFilteredRowModel(),
   getPaginationRowModel: getPaginationRowModel(),
-  getSortedRowModel: getSortedRowModel(),
-  getFacetedRowModel: getFacetedRowModel(),
-  getFacetedUniqueValues: getFacetedUniqueValues(),
 });
+
+
+watch(
+  () => props.searchTerm,
+  (newSearchTerm) => {
+    columnFilters.value = newSearchTerm
+      ? [{ id: 'id',
+        value: newSearchTerm }] 
+      : [];
+  }
+);
 </script>
 
 <template>
@@ -117,7 +123,7 @@ const table = useVueTable({
           </template>
 
           <TableRow v-else>
-            <TableCell :colspan="columns.length"
+            <TableCell :colspan="props.columns.length"
                        class="h-24 text-center">
               No results.
             </TableCell>

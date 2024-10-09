@@ -1,6 +1,6 @@
 <template>
   <button
-    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 w-9 sm:hidden"
+    class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 w-9 sm:hidden"
     type="button"
     aria-haspopup="dialog"
     aria-expanded="false"
@@ -30,8 +30,17 @@
     ></span
     >
   </button>
-  <nav class="grid gap-4 text-sm text-muted-foreground">
+  <div class="flex justify-center">
+   
     <Button
+      class="text-base text-textHover  border border-textHover  bg-white hover:bg-customHover w-36  rounded-ro"
+    > <Plus class="mr-2 h-4 w-4 " />創建作品</Button
+    >
+  </div>
+
+  <nav class="grid text-sm text-muted-foreground ">
+    <Button
+      id="btn"
       v-for="item in sidebarNavItems"
       :key="item.title"
       as="a"
@@ -39,12 +48,17 @@
       variant="ghost"
       :class="
         cn(
-          'w-full text-left justify-start',
+          ' gap-3 rounded-none w-full text-left justify-start hover:bg-customHover  hover:text-textHover text-textColor text-base',
           $route.path === item.href &&
-            'bg-muted hover:bg-muted border-l-3 borderColor'
+            'bg-customHover  border-l-2 border-textHover borderColor text-textHover '
         )
       "
     >
+      <img
+        src="@/assets/icons/object.svg"
+        alt="object"
+        class="icon"
+      />
       {{ item.title }}
     </Button>
   </nav>
@@ -54,7 +68,7 @@
 import { useRoute } from 'vue-router';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-
+import { Plus } from 'lucide-vue-next';
 interface Item {
   title: string;
   href: string;
@@ -81,3 +95,16 @@ const sidebarNavItems: Item[] = [
   },
 ];
 </script>
+<style scoped>
+.icon {
+  width: 22px;
+  height: 22px;
+}
+#btn{
+  padding: 14px 30px;
+  width: 100vw;
+  height: 100vh;
+  max-width: 256px;
+  max-height: 50px
+}
+</style>

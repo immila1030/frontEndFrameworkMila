@@ -9,7 +9,12 @@ import DataTableColumnHeader from './DataTableColumnHeader.vue';
 import DataTableRowActions from './DataTableRowActions.vue';
 import type { Task } from '../data/schema';
 import { Badge } from '@/components/ui/badge';
-import { labels, priorities, statuses } from '../data/data';
+import { labels, priorities } from '../data/data';
+import avatarImage from '@/assets/avatar/avatar.jpg';
+import imageUrl from '@/assets/image/image1.jpg';
+import deleteIcon from '@/assets/icons/delete.svg';
+import edit from '@/assets/icons/edit.svg';
+import share from '@/assets/icons/share.svg';
 export const columns: ColumnDef<Task>[] = [
   {
     id: 'select',
@@ -34,75 +39,190 @@ export const columns: ColumnDef<Task>[] = [
   },
   {
     accessorKey: 'id',
-    header: ({ column }) => h(DataTableColumnHeader, { column,
-      title: 'Task' }),
-    cell: ({ row }) => h('div', { class: 'w-20' }, row.getValue('id')),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: 'title',
     header: ({ column }) =>
       h(DataTableColumnHeader, { column,
-        title: 'Title' }),
+        title: '專案名稱' }),
 
     cell: ({ row }) => {
-      const label = labels.find((label) => label.value === row.original.label);
+      return h('div', { class: 'flex space-x-2 items-center' }, [
+        h('img', {
+          src: imageUrl,
+          alt: 'image',
+          class: 'h-10 w-14 object-cover',
+        }),
+        h('div', { class: 'w-72 truncate' }, row.getValue('id')),
+      ]);
+    },
+    enableSorting: false,
+  },
+  {
+    accessorKey: 'content',
+    header: ({ column }) =>
+      h(DataTableColumnHeader, { column,
+        title: '項目負責人' }),
 
-      return h('div', { class: 'flex space-x-2' }, [
-        label ? h(Badge, { variant: 'outline' }, () => label.label) : null,
+    cell: ({ row }) => {
+      const content = row.getValue('content') || {};
+      const contentName = content.name || '';
+      const contentPhone = content.phone || '';
+
+      return h('div', { class: 'flex flex-col' }, [
+        h('span', { class: 'max-w-[500px] truncate font-medium' }, contentName),
         h(
           'span',
           { class: 'max-w-[500px] truncate font-medium' },
-          row.getValue('title')
+          contentPhone
         ),
       ]);
     },
+    enableSorting: false,
   },
   {
-    accessorKey: 'status',
+    accessorKey: 'workday',
     header: ({ column }) =>
       h(DataTableColumnHeader, { column,
-        title: 'Status' }),
+        title: '開工日' }),
 
     cell: ({ row }) => {
-      const status = statuses.find(
-        (status) => status.value === row.getValue('status')
-      );
-
-      if (!status) return null;
-
-      return h('div', { class: 'flex w-[100px] items-center' }, [
-        status.icon &&
-          h(status.icon, { class: 'mr-2 h-4 w-4 text-muted-foreground' }),
-        h('span', status.label),
-      ]);
-    },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id));
+      return h('div', { class: 'truncate' }, row.getValue('workday'));
     },
   },
   {
-    accessorKey: 'priority',
+    accessorKey: 'completion',
     header: ({ column }) =>
       h(DataTableColumnHeader, { column,
-        title: 'Priority' }),
+        title: '完工日' }),
+
     cell: ({ row }) => {
-      const priority = priorities.find(
-        (priority) => priority.value === row.getValue('priority')
+      return h('div', { class: 'truncate' }, row.getValue('completion'));
+    },
+  },
+  {
+    accessorKey: 'updatetime',
+    header: ({ column }) =>
+      h(DataTableColumnHeader, { column,
+        title: '更新時間' }),
+
+    cell: ({ row }) => {
+      return h('div', { class: 'truncate' }, row.getValue('updatetime'));
+    },
+  },
+  {
+    accessorKey: 'content',
+    header: ({ column }) =>
+      h(
+        'div',
+        { class: 'flex items-center whitespace-nowrap justify-center' },
+        [h(DataTableColumnHeader, { column,
+          title: '製作成員' })]
+      ),
+
+    cell: ({ row }) => {
+      return h(
+        'div',
+        {
+          class: 'flex items-center flex justify-center',
+        },
+        [
+          h('img', {
+            src: avatarImage,
+            alt: 'image',
+            class: 'h-10 w-10 rounded-full object-cover ',
+          }),
+        ]
       );
-
-      if (!priority) return null;
-
-      return h('div', { class: 'flex items-center' }, [
-        priority.icon &&
-          h(priority.icon, { class: 'mr-2 h-4 w-4 text-muted-foreground' }),
-        h('span', {}, priority.label),
-      ]);
     },
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id));
+    enableSorting: false,
+  },
+  {
+    accessorKey: 'content',
+    header: ({ column }) =>
+      h(
+        'div',
+        {
+          class: 'items-center whitespace-nowrap',
+          style: {
+            display: 'flex',
+            justifyContent: 'center',
+          },
+        },
+        [h(DataTableColumnHeader, { column,
+          title: '操作' })]
+      ),
+    cell: ({ row }) => {
+      return h(
+        'div',
+        {
+          class: 'flex items-center justify-center gap-2',
+        },
+        [
+          h(
+            'button',
+            {
+              class: 'p-2 border-4 ',
+              style: {
+                backgroundColor: 'white',
+                borderRadius: '5px',
+                width: '100vw',
+                maxWidth: '38px',
+                border: '1px solid #EB9717',
+                cursor: 'pointer',
+              },
+            },
+            [
+              h('img', {
+                src: share,
+                alt: '分享',
+                class: 'h-22 w-22',
+              }),
+            ]
+          ),
+          h(
+            'button',
+            {
+              class: 'p-2',
+              style: {
+                backgroundColor: 'white',
+                border: '1px solid #015C61',
+                width: '100vw',
+                maxWidth: '38px',
+                borderRadius: '5px',
+                cursor: 'pointer',
+              },
+            },
+            [
+              h('img', {
+                src: edit,
+                alt: '编辑',
+                class: 'h-22 w-22',
+              }),
+            ]
+          ),
+          h(
+            'button',
+            {
+              class: 'p-2',
+              style: {
+                backgroundColor: 'white',
+                borderRadius: '5px',
+                border: '1px solid #FD4D4F',
+                width: '100vw',
+                maxWidth: '38px',
+                cursor: 'pointer',
+              },
+            },
+            [
+              h('img', {
+                src: deleteIcon,
+                alt: '删除',
+                class: 'h-22 w-22',
+              }),
+            ]
+          ),
+        ]
+      );
     },
+    enableSorting: false, // 禁止排序
   },
   {
     id: 'actions',

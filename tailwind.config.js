@@ -23,7 +23,15 @@ module.exports = {
     },
     extend: {
       colors: {
-        borderColor: '#015C61',
+        customHover:'hsla(180, 40%, 94%, 1)',
+        textColor:'hsla(0, 0%, 65%, 1)',
+        textHover:'hsla(183, 98%, 19%, 1)',
+        buttonDisabled:'hsla(0, 0%, 92%, 1)',
+        DownIcon:'#A7A7A7',
+        Disabled:'#6D6D6D',
+        textHoverD:'hsla(359, 98%, 65%, 1)',
+        textHoverE:'hsla(183, 98%, 19%, 1)',
+        textHoverS:'hsla(36, 84%, 51%, 1)',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -63,6 +71,7 @@ module.exports = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        ro:'50px'
       },
       keyframes: {
         'accordion-down': {
