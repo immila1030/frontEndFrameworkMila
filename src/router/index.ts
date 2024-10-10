@@ -1,29 +1,52 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import UserAuth from '../forms/UserAuth.vue';
 import FormsLayout from '../forms/layouts/FormsLayout.vue';
 import Account from '../forms/Account.vue';
 import Appearance from '../forms/Appearance.vue';
 import Notifications from '../forms/Notifications.vue';
 import Display from '../forms/Display.vue';
+
+const isAuthenticated = () => {
+  return localStorage.getItem('userToken'); 
+};
+
 const routes = [
   {
     path: '/',
-    redirect: '/forms/account', 
+    redirect: '/forms/login',
   },
   {
-    path: '/forms/account',
-    component: Account,
+    path: '/forms/login',
+    component: UserAuth,
   },
   {
-    path: '/forms/appearance',
-    component: Appearance,
-  },
-  {
-    path: '/forms/notifications',
-    component: Notifications,
-  },
-  {
-    path: '/forms/display',
-    component: Display,
+    path: '/forms',
+    component: FormsLayout,
+    beforeEnter: (to, from, next) => {
+      if (!isAuthenticated()) {
+        next('/forms/login');
+      } else {
+        next();
+      }
+    },
+    children: [
+      {
+        path: 'account',
+        component: Account,
+      },
+      {
+        path: 'appearance',
+        component: Appearance,
+      },
+      {
+        path: 'notifications',
+        component: Notifications,
+      },
+      {
+        path: 'display',
+        component: Display,
+      },
+    ],
   },
 ];
 

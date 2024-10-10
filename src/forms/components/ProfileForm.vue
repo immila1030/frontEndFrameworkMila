@@ -1,4 +1,4 @@
 <script lang="ts"></script>
 <template>
-  <p>嗨嗨</p>
+  <p></p>
 </template>

@@ -1,15 +1,21 @@
 <template>
-  <div class="space-y-6 h-screen">
+  <div id="forms"
+       class="space-y-6">
     <header
-      class="sticky top-0 flex h-16 items-center gap-4 justify-between border-b bg-background px-4 md:px-6"
+      class="sticky top-0 flex h-16 items-center gap-4 justify-between bg-background px-4 md:px-6"
     >
-      <div>
+      <div class="hidden lg:flex">
         <img
           src="@/assets/icons/logo.svg"
           alt="Logo"
           class="icon col-start-1 col-end-3"
         />
       </div>
+      <aside
+        class="lg:hidden flex flex-col px-2 sm:py-1"
+      >
+        <SidebarNav2 />
+      </aside>
       <div class="col-end-7 col-span-2">
         <ToggleGroup type="single">
           <ToggleGroupItem value="a"
@@ -60,30 +66,21 @@
         </ToggleGroup>
       </div>
     </header>
-    <div
-      class="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0 h-full"
-    >
+    <div id="nav"
+         class="flex flex-col lg:flex-row lg:space-x-12 lg:space-y-0">
       <aside
-        class="hidden lg:flex bg-white flex h-full max-h-screen flex-col gap-2 w-64 pt-12 rounded-tl-none rounded-tr-[50px] rounded-b-none rounded-l-none"
+        class="hidden lg:flex bg-white flex gap-2 w-64 pt-10 rounded-tl-none rounded-tr-[50px] rounded-b-none rounded-l-none"
       >
         <SidebarNav />
       </aside>
-      <aside
-        class="lg:hidden mt-auto flex flex-col items-center gap-4 px-2 sm:py-5"
+      <div
+        id="container"
+        class="flex flex-1 flex-col sm:flex-row gap-4 lg:gap-6 bg-whitet overflow-auto"
       >
-        <SidebarNav2 />
-      </aside>
-      <div id="container"
-           class="flex flex-1 flex-col gap-4 lg:gap-6 bg-whitet overflow-auto">
-        <!-- <div
-          id="content"
-          class="flex flex-1 flex-col gap-4 lg:gap-6 bg-whitet overflow-auto"
-        > -->
         <div id="content"
+             class="overflow-auto"
         >
-          
           <router-view />
-          
         </div>
       </div>
     </div>
@@ -151,6 +148,9 @@ function ChangeTheme (theme: string): void {
 }
 </script>
 <style scoped>
+#forms {
+  display: contents;
+}
 .icon {
   width: 130px;
   height: 40px;
@@ -170,5 +170,11 @@ function ChangeTheme (theme: string): void {
   margin: 0 0 80px 0;
   scrollbar-width: none;
   --tw-space-y-reverse: none;
+}
+#nav {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+  border-radius: 0;
 }
 </style>

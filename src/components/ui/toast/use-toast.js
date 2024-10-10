@@ -95,6 +95,9 @@ function useToast() {
 }
 
 function toast(props) {
+  if (!props.show) {
+    return;
+  }
   const id = genId();
 
   const update = (props) =>
@@ -117,7 +120,9 @@ function toast(props) {
       },
     },
   });
-
+  setTimeout(() => {
+    dismiss();
+  }, 3000);
   return {
     id,
     dismiss,

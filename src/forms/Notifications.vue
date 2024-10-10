@@ -4,5 +4,4 @@ import NotificationsForm from './components/NotificationsForm.vue';
 
 <template>
   <NotificationsForm />
-  <p>NotificationsForm</p>
 </template>

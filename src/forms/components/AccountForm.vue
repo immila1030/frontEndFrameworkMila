@@ -1,9 +1,11 @@
 <template>
-  <div id="content">
-    <div class="border-l-4 border-textHover">
+  <div id="content"
+  >
+    <div id="title"
+         class="border-l-4 border-textHover">
       <p class="text-xl text-textHover font-bold ml-1">專案</p>
     </div>
-    <div class="">
+    <div >
       <Tabs default-value="account">
         <div id="search-container">
           <div>
@@ -28,7 +30,7 @@
                   <div class="">
                     <Card>
                       <CardContent
-                        class="flex gap-1 aspect-square items-center justify-center flex-col"
+                        class="grid gap-1 aspect-square items-center justify-items-center"
                       >
                         <Avatar>
                           <AvatarImage :src="imageUrl"
@@ -99,6 +101,7 @@
         </TabsContent>
       </Tabs>
     </div>
+    <Toaster/>
   </div>
 </template>
 
@@ -112,6 +115,7 @@ import type { Payment } from '../payments/columns';
 import DataTable from '../payments/DataTable.vue';
 import { Search } from 'lucide-vue-next';
 import { Input } from '@/components/ui/input';
+import { Toaster } from '@/components/ui/toast';
 import {
   Carousel,
   CarouselContent,
@@ -138,13 +142,17 @@ onMounted(async () => {
 });
 </script>
 <style scoped>
+#title {
+  margin: 0 20px 32px 25px;
+}
 #search-container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
   margin: 1px;
   padding: 1px;
-  margin-bottom: 32px;
+  margin: 0 20px 32px 25px;
+  
 }
 #content {
   display: flex;
@@ -167,10 +175,10 @@ onMounted(async () => {
   box-shadow: 4px 4px 2px 0 rgba(0, 0, 0, 0.05);
   padding: 20px;
   margin: 0;
-  padding: 20px;
   height: auto;
   color: #4d4d4d;
   margin-bottom: 20px;
+  margin-right: 5px;
 }
 @media (max-width: 1280px) {
   #search-container {

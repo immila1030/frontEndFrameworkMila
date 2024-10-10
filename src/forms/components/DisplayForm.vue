@@ -3,9 +3,6 @@
        class="card">
     <!-- <p>我是時間：<span id="timer"></span></p> -->
     <!-- <p id="text">hello!Mila~~~</p> -->
-    <p>使用i18b切換語言</p>
-    <p>{{ t('welcome') }}</p>
-    <Button @click="switchLanguage">切換語言</Button>
     <Separator class="my-6" />
     <p>使用vueuse偵測螢幕寬高</p>
     <div>
@@ -13,14 +10,20 @@
       <h1>目前螢幕高度: {{ height }}</h1>
     </div>
     <Separator class="my-6" />
+
     <p>使用Pinia更新資料及儲存資料</p>
     <p>{{ store.message }}</p>
+    <Button
+      class="w-20 text-base text-white border bg-textHover hover:bg-bgHover rounded-ro text-sm"
+      @click="setMessage('你好，Piniaaaaaaaaaaaa！')"
+    >更新消息</Button
+    >
     <p>計數: {{ store.count }}</p>
-    <Button @click="store.increment">增加</Button>
-    
-    <Button @click="setMessage('你好，Piniaaaaaaaaaaaa！')">更新消息</Button>
-    
-
+    <Button
+      class="w-20 text-base text-white border bg-textHover hover:bg-bgHover rounded-ro text-sm"
+      @click="store.increment"
+    >增加</Button
+    >
   </div>
 </template>
 
@@ -33,15 +36,12 @@ import { Separator } from '@/components/ui/separator';
 
 const { width, height } = useWindowSize();
 
-
 const { t, locale } = useI18n();
 const switchLanguage = () => {
-  locale.value = locale.value === 'en' ? 'zh' : 'en'; 
+  locale.value = locale.value === 'en' ? 'zh' : 'en';
 };
 
-
 const store = useStore();
-
 
 const setMessage = (msg) => {
   store.setMessage(msg);

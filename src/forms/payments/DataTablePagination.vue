@@ -15,54 +15,35 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { number } from 'zod';
-interface DataTablePaginationProps {
-  table: Table<Task>;
-}
+const props = defineProps<{ table: Table<Task> }>();
 
-const props = defineProps<DataTablePaginationProps>();
 const inputPage = ref<number | null>(null);
-const isInputLocked = ref(false); 
+const isInputLocked = ref(false);
 
-const currentPage = computed(() => {
-  const pageIndex = props.table.getState().pagination.pageIndex + 1;
-  return pageIndex;
-});
+const currentPage = computed(
+  () => props.table.getState().pagination.pageIndex + 1
+);
 
-const totalPages = computed(() => {
-  const pageCount = props.table.getPageCount();
-  return pageCount;
-});
+const totalPages = computed(() => props.table.getPageCount());
 
-
-watch(inputPage, (newPage) => {
-  const pageNumber = Number(newPage);
-
-
-  if (newPage === null) {
-    inputPage.value = null;
-    isInputLocked.value = false; 
-    return;
-  }
+const validateInput = () => {
+  const pageNumber = Number(inputPage.value);
 
   if (isNaN(pageNumber) || pageNumber < 1) {
-    inputPage.value = 1; 
-    isInputLocked.value = false;
+    inputPage.value = null;
   } else if (pageNumber > totalPages.value) {
     inputPage.value = totalPages.value;
     props.table.setPageIndex(totalPages.value - 1);
-    isInputLocked.value = true;
   } else {
-
     props.table.setPageIndex(pageNumber - 1);
-    isInputLocked.value = false;
   }
-});
+};
 
-
-watch(totalPages, (newTotalPages) => {
-  if (inputPage.value && inputPage.value > newTotalPages) {
-    inputPage.value = newTotalPages; 
-    isInputLocked.value = true;
+watch(inputPage, (newPage) => {
+  if (newPage === null) {
+    inputPage.value = null;
+  } else {
+    validateInput();
   }
 });
 </script>
@@ -192,10 +173,10 @@ watch(totalPages, (newTotalPages) => {
     </div>
     <div class="flex items-center gap-2 justify-center">
       跳至
-      <Input
+      <input
         v-model="inputPage"
         @input="validateInput"
-        :readonly="isInputLocked" 
+        :readonly="isInputLocked"
         placeholder=""
         class="rounded-lg bg-background w-[50px] h-[32px] bg-white text-black ring-transparent"
       />
@@ -203,3 +184,17 @@ watch(totalPages, (newTotalPages) => {
     </div>
   </div>
 </template>
+<style scoped>
+input {
+  border-radius: 0.5rem;
+  width: 50px;
+  height: 32px;
+  background-color: white;
+  color: black;
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #A7A7A7;
+  text-align: center;
+}
+
+</style>

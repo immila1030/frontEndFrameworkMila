@@ -4,5 +4,4 @@ import AppearanceForm from './components/AppearanceForm.vue';
 
 <template>
   <AppearanceForm />
-  <p>AppearanceForm</p>
 </template>
