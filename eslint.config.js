@@ -41,7 +41,7 @@ export default [
       'vue/html-indent': ['error', 2], // Vue 文件的縮排設定
       'vue/max-attributes-per-line': ['error', { singleline: 1,
         multiline: 1 }], // 控制 Vue 文件中每行屬性的數量
-      'vue/multi-word-component-names': 'off',
+      // 'vue/multi-word-component-names': 'off',
     },
     ignores: ['src/components/ui/**/*'],
   },
