@@ -147,6 +147,10 @@ const sidebarNavItems: Item[] = [
     title: 'Pinia 和 Vueuse',
     href: '/forms/display',
   },
+  {
+    title: 'Tabs',
+    href: '/forms/Profile',
+  },
 ];
 const props = withDefaults(
   defineProps<ProgressRootProps & { class?: HTMLAttributes['class'] }>(),

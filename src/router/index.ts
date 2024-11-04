@@ -5,9 +5,9 @@ import Account from '../forms/Account.vue';
 import Appearance from '../forms/Appearance.vue';
 import Notifications from '../forms/Notifications.vue';
 import Display from '../forms/Display.vue';
-
+import Profile from '../forms/Profile.vue';
 const isAuthenticated = () => {
-  return localStorage.getItem('userToken'); 
+  return localStorage.getItem('userToken');
 };
 
 const routes = [
@@ -45,6 +45,10 @@ const routes = [
       {
         path: 'display',
         component: Display,
+      },
+      {
+        path: 'Profile',
+        component: Profile,
       },
     ],
   },

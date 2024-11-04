@@ -1,7 +1,7 @@
 <script setup>
-import { computed } from "vue";
-import { TabsList } from "radix-vue";
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
+import { TabsList } from 'radix-vue';
+import { computed } from 'vue';
 
 const props = defineProps({
   loop: { type: Boolean, required: false },
@@ -22,8 +22,8 @@ const delegatedProps = computed(() => {
     v-bind="delegatedProps"
     :class="
       cn(
-        'inline-flex items-center justify-center rounded-ro bg-buttonDisabled  text-muted-foreground',
-        props.class,
+        'inline-flex items-center justify-center rounded-md p-1 text-muted-foreground',
+        props.class
       )
     "
   >
